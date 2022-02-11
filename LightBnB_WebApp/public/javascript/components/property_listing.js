@@ -7,6 +7,20 @@ $(() => {
         <section class="property-listing__preview-image">
           <img src="${property.thumbnail_photo_url}" alt="house">
         </section>
+        <form action="/api/reservations/${property.id}" method='post' id="reservation-form" class="reservation-form">
+        <p>Reserve</p>
+        <div class="reservation-check-in-form__field-wrapper">
+          <input type="date" name="Check-in date: " placeholder="YYYY-MM-DD">
+        </div>
+  
+        <div class="reservation-check-out-form__field-wrapper">
+            <input type="date" name="Check-out date" placeholder="YYYY-MM-DD">
+          </div>
+  
+        <div class="reservation-form__field-wrapper">
+            <button>Submit</button>
+        </div>
+      </form>
         <section class="property-listing__details">
           <h3 class="property-listing__title">${property.title}</h3>
           <ul class="property-listing__details">
@@ -25,6 +39,8 @@ $(() => {
       </article>
     `
   }
+
+
 
   window.propertyListing.createListing = createListing;
 
